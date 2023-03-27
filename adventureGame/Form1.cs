@@ -265,7 +265,6 @@ namespace adventureGame
 
                     option1.BackColor = Color.White;
                     option2.BackColor = Color.White;
-                    option3.BackColor = Color.White;
 
                     option1.Text = "Yes";
                     option2.Text = "No";
@@ -711,7 +710,6 @@ namespace adventureGame
 
                     option1.BackColor = Color.White;
                     option2.BackColor = Color.White;
-                    option3.BackColor = Color.White;
 
                     option1.Text = "Yes";
                     option2.Text = "No";
@@ -1073,7 +1071,6 @@ namespace adventureGame
 
                     option1.BackColor = Color.White;
                     option2.BackColor = Color.White;
-                    option3.BackColor = Color.White;
 
                     option1.Text = "Yes";
                     option2.Text = "No";

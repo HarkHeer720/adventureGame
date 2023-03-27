@@ -120,10 +120,10 @@
     <None Include="Resources\endScreen.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\yippee.wav" />
+    <None Include="Resources\deathSound.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\deathSound.wav" />
+    <None Include="Resources\yippee.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

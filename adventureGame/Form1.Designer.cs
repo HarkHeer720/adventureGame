@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.textOutput = new System.Windows.Forms.Label();
-            this.imageBox = new System.Windows.Forms.Label();
             this.option1 = new System.Windows.Forms.Button();
             this.option2 = new System.Windows.Forms.Button();
             this.option3 = new System.Windows.Forms.Button();
             this.titleLabel = new System.Windows.Forms.Label();
+            this.imageBox = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.imageBox)).BeginInit();
             this.SuspendLayout();
             // 
             // textOutput
@@ -44,14 +46,6 @@
             this.textOutput.Name = "textOutput";
             this.textOutput.Size = new System.Drawing.Size(291, 163);
             this.textOutput.TabIndex = 0;
-            // 
-            // imageBox
-            // 
-            this.imageBox.BackColor = System.Drawing.Color.Black;
-            this.imageBox.Location = new System.Drawing.Point(19, 121);
-            this.imageBox.Name = "imageBox";
-            this.imageBox.Size = new System.Drawing.Size(321, 153);
-            this.imageBox.TabIndex = 1;
             // 
             // option1
             // 
@@ -100,20 +94,32 @@
             this.titleLabel.Text = "Wendy\'s Bathroom";
             this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // imageBox
+            // 
+            this.imageBox.Image = global::adventureGame.Properties.Resources.bathroom;
+            this.imageBox.InitialImage = ((System.Drawing.Image)(resources.GetObject("imageBox.InitialImage")));
+            this.imageBox.Location = new System.Drawing.Point(12, 121);
+            this.imageBox.Name = "imageBox";
+            this.imageBox.Size = new System.Drawing.Size(304, 163);
+            this.imageBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imageBox.TabIndex = 6;
+            this.imageBox.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(659, 406);
+            this.Controls.Add(this.imageBox);
             this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.option3);
             this.Controls.Add(this.option2);
             this.Controls.Add(this.option1);
-            this.Controls.Add(this.imageBox);
             this.Controls.Add(this.textOutput);
             this.Name = "Form1";
             this.Text = "Adventure Game";
+            ((System.ComponentModel.ISupportInitialize)(this.imageBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -121,11 +127,11 @@
         #endregion
 
         private System.Windows.Forms.Label textOutput;
-        private System.Windows.Forms.Label imageBox;
         private System.Windows.Forms.Button option1;
         private System.Windows.Forms.Button option2;
         private System.Windows.Forms.Button option3;
         private System.Windows.Forms.Label titleLabel;
+        private System.Windows.Forms.PictureBox imageBox;
     }
 }
 
