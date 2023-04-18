@@ -1,4 +1,6 @@
-﻿namespace adventureGame
+﻿using System;
+
+namespace adventureGame
 {
     partial class Form1
     {
@@ -42,9 +44,9 @@
             // 
             this.textOutput.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.textOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textOutput.Location = new System.Drawing.Point(356, 121);
+            this.textOutput.Location = new System.Drawing.Point(356, 104);
             this.textOutput.Name = "textOutput";
-            this.textOutput.Size = new System.Drawing.Size(291, 163);
+            this.textOutput.Size = new System.Drawing.Size(291, 180);
             this.textOutput.TabIndex = 0;
             // 
             // option1
@@ -96,11 +98,12 @@
             // 
             // imageBox
             // 
+            this.imageBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.imageBox.Image = global::adventureGame.Properties.Resources.bathroom;
             this.imageBox.InitialImage = ((System.Drawing.Image)(resources.GetObject("imageBox.InitialImage")));
-            this.imageBox.Location = new System.Drawing.Point(12, 121);
+            this.imageBox.Location = new System.Drawing.Point(12, 104);
             this.imageBox.Name = "imageBox";
-            this.imageBox.Size = new System.Drawing.Size(304, 163);
+            this.imageBox.Size = new System.Drawing.Size(304, 180);
             this.imageBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.imageBox.TabIndex = 6;
             this.imageBox.TabStop = false;
@@ -117,6 +120,7 @@
             this.Controls.Add(this.option2);
             this.Controls.Add(this.option1);
             this.Controls.Add(this.textOutput);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Adventure Game";
             ((System.ComponentModel.ISupportInitialize)(this.imageBox)).EndInit();

@@ -1,4 +1,8 @@
-﻿using System;
+﻿/* 
+Harkaran Heer March 31, 2023: Added comments, tracked a variable
+POV: you woke up in an abondoned wendy's
+*/
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,16 +18,16 @@ namespace adventureGame
 {
     public partial class Form1 : Form
     {
-        int page = 1;
+        int page = 1; // declaring variables
 
-        Random random = new Random();
+        Random random = new Random(); // generating a randomizer
         int randomValue;
 
-        SoundPlayer deathSound = new SoundPlayer(Properties.Resources.deathSound);
+        SoundPlayer deathSound = new SoundPlayer(Properties.Resources.deathSound); // getting sounds
         SoundPlayer yippee = new SoundPlayer(Properties.Resources.yippee);
         public Form1()
         {
-            InitializeComponent();
+            InitializeComponent(); // setting up intial text and photos
             textOutput.Text = "You wake up in an abandoned Wendy's bathroom. Do you leave or go back to sleep?";
 
             option1.Text = "Go back to sleep";
@@ -33,10 +37,9 @@ namespace adventureGame
 
             option3.BackColor = Color.Black;
         }
-
         private void option1_Click(object sender, EventArgs e)
         {
-            if (page == 1)
+            if (page == 1) // setting pages
             {
                 page = 2;
             }
@@ -46,7 +49,7 @@ namespace adventureGame
             }
             else if (page == 3)
             {
-                randomValue = random.Next(1, 101);
+                randomValue = random.Next(1, 101); // random chance
 
                 if (randomValue >= 61)
                 {
@@ -142,355 +145,12 @@ namespace adventureGame
                 page = 1;
             }
 
-            switch(page)
-            {
-                case 1:
-                    textOutput.Text = "You wake up in an abandoned Wendy's bathroom. Do you leave or go back to sleep?";
-
-                    option1.Text = "Go back to sleep";
-                    option2.Text = "Leave the bathroom";
-                    option3.Text = "";
-
-                    imageBox.Image = Properties.Resources.bathroom;
-
-                    option3.BackColor = Color.Black;
-                    option3.Enabled = false;
-                    break;
-                case 2:
-                    textOutput.Text = "You fall asleep and die of E.coli from the Wendy's bathroom. Play again?";
-
-                    option1.Text = "Yes";
-                    option2.Text = "No";
-                    option3.Text = "";
-
-                    imageBox.Image = Properties.Resources.deathScreen;
-                    deathSound.Play();
-
-                    option3.BackColor = Color.Black;
-                    option3.Enabled = false;
-                    break;
-                case 3:
-                    textOutput.Text = "You leave out the back door and enter another room with a vent and a door. Which do you choose?";
-
-                    option1.Text = "Go through vent";
-                    option2.Text = "Go through door";
-                    option3.Text = "";
-
-                    imageBox.Image = Properties.Resources.vent;
-
-                    option3.BackColor = Color.Black;
-                    option3.Enabled = false;
-                    break;
-                case 4:
-                    textOutput.Text = "You got trapped in the vents and died of boredom. Play again?";
-
-                    option1.Text = "Yes";
-                    option2.Text = "No";
-                    option3.Text = "";
-
-                    imageBox.Image = Properties.Resources.deathScreen;
-                    deathSound.Play();
-
-                    option3.BackColor = Color.Black;
-                    option3.Enabled = false;
-                    break;
-                case 5:
-                    textOutput.Text = "You made it into the main room and you find a hammer. Do you take it, leave it or throw it into a deepfryer";
-
-                    option1.Text = "Throw it into a deepfryer";
-                    option2.Text = "Leave the hammer";
-                    option3.Text = "Take the hammer";
-
-                    imageBox.Image = Properties.Resources.hammer;
-
-                    option3.BackColor = Color.White;
-                    option3.Enabled = true;
-                    break;
-                case 6:
-                    textOutput.Text = "You throw the hammer into the deep fryer and oil splashes everywhere. You slip on the oil and hit your head on a table and die. Play again?";
-
-                    option1.Text = "Yes";
-                    option2.Text = "No";
-                    option3.Text = "";
-
-                    imageBox.Image = Properties.Resources.deathScreen;
-                    deathSound.Play();
-
-                    option3.BackColor = Color.Black;
-                    option3.Enabled = false;
-                    break;
-                case 7:
-                    textOutput.Text = "You got a hammer. Do you use it to break down a wall";
-
-                    option1.Text = "Break down the wall";
-                    option2.Text = "Don't break down the wall";
-                    option3.Text = "";
-
-                    imageBox.Image = Properties.Resources.wall;
-
-                    option3.BackColor = Color.Black;
-                    option3.Enabled = true;
-                    break;
-                case 8:
-                    textOutput.Text = "You leave the hammer and continue walking and you find 2 exits. Do you leave out the front door or back door?";
-
-                    option1.Text = "Front door";
-                    option2.Text = "Back door";
-                    option3.Text = "";
-
-                    imageBox.Image = Properties.Resources.wendys;
-
-                    option3.BackColor = Color.Black;
-                    option3.Enabled = false;
-                    break;
-                case 9:
-                    textOutput.Text = "You broke down the wall.";
-
-                    option1.Text = "";
-                    option2.Text = "";
-                    option3.Text = "";
-
-                    option1.BackColor = Color.Black;
-                    option2.BackColor = Color.Black;
-                    option3.BackColor = Color.Black;
-
-                    option1.Enabled = false;
-                    option2.Enabled = false;
-                    option3.Enabled = false;
-
-                    Refresh();
-                    Thread.Sleep(1500);
-
-                    textOutput.Text = "The roof collapses onto you and you get crushed to death. Play again?";
-
-                    option1.BackColor = Color.White;
-                    option2.BackColor = Color.White;
-
-                    option1.Text = "Yes";
-                    option2.Text = "No";
-                    option3.Text = "";
-
-                    option1.Enabled = true;
-                    option2.Enabled = true;
-
-                    imageBox.Image = Properties.Resources.deathScreen;
-                    deathSound.Play();
-                    break;
-                case 10:
-                    textOutput.Text = "You continue walking and you encounter a bear while walking. Do you fight it or run?";
-
-                    option1.Text = "Fight the bear";
-                    option2.Text = "Run from the bear";
-                    option3.Text = "";
-
-                    imageBox.Image = Properties.Resources.bear;
-
-                    option3.BackColor = Color.Black;
-                    option3.Enabled = false;
-                    break;
-                case 11:
-                    textOutput.Text = "You ran from the bear and barely escaped outside. You see 2 paths in front of you which do you choose?";
-
-                    option1.Text = "Left path";
-                    option2.Text = "Right path";
-                    option3.Text = "";
-
-                    imageBox.Image = Properties.Resources.twoPaths;
-
-                    option3.BackColor = Color.Black;
-                    option3.Enabled = false;
-                    break;
-                case 12:
-                    textOutput.Text = "You died to the bear RIP bozo. Play again?";
-
-                    option1.Text = "Yes";
-                    option2.Text = "No";
-                    option3.Text = "";
-
-                    imageBox.Image = Properties.Resources.deathScreen;
-                    deathSound.Play();
-
-                    option3.BackColor = Color.Black;
-                    option3.Enabled = false;
-                    break;
-                case 13:
-                    textOutput.Text = "You walk into a clearing and find a red Nissan Accord do you break into it?";
-
-                    option1.Text = "Break into the car";
-                    option2.Text = "Continue walking";
-                    option3.Text = "";
-
-                    imageBox.Image = Properties.Resources.redNissanAccord;
-
-                    option3.BackColor = Color.Black;
-                    option3.Enabled = false;
-                    break;
-                case 14:
-                    textOutput.Text = "You walk outside the front door and fall into a sinkhole and get crushed by rocks. Play again?";
-
-                    option1.Text = "Yes";
-                    option2.Text = "No";
-                    option3.Text = "";
-
-                    imageBox.Image = Properties.Resources.deathScreen;
-                    deathSound.Play();
-
-                    option3.BackColor = Color.Black;
-                    option3.Enabled = false;
-                    break;
-                case 15:
-                    textOutput.Text = "You leave out the back door and you see a car. Do you break in to it?";
-
-                    option1.Text = "Continue walking";
-                    option2.Text = "Break into the car";
-                    option3.Text = "";
-
-                    imageBox.Image = Properties.Resources.redNissanAccord;
-
-                    option3.BackColor = Color.Black;
-                    option3.Enabled = false;
-                    break;
-                case 16:
-                    textOutput.Text = "You walk into the street and get run down by a minivan. Play again?";
-
-                    option1.Text = "Yes";
-                    option2.Text = "No";
-                    option3.Text = "";
-
-                    imageBox.Image = Properties.Resources.deathScreen;
-                    deathSound.Play();
-
-                    option3.BackColor = Color.Black;
-                    option3.Enabled = false;
-                    break;
-                case 17:
-                    textOutput.Text = "You break in to the car and successfully hotwire it and drive to an intersection. Do you turn right, left or straight?";
-
-                    option1.Text = "Turn left";
-                    option2.Text = "Go straight";
-                    option3.Text = "Turn right";
-
-                    imageBox.Image = Properties.Resources.intersection;
-
-                    option3.BackColor = Color.White;
-                    option3.Enabled = true;
-                    break;
-                case 18:
-                    textOutput.Text = "You turn left at the intersection and fall of a cliff and your car explodes. Play again?";
-
-                    option1.Text = "Yes";
-                    option2.Text = "No";
-                    option3.Text = "";
-
-                    imageBox.Image = Properties.Resources.deathScreen;
-                    deathSound.Play();
-
-                    option3.BackColor = Color.Black;
-                    option3.Enabled = false;
-                    break;
-                case 19:
-                    textOutput.Text = "You turn right at the intersection. You nearly hit an old lady. She pulls out a Fortnite rocket launcher and blows up your car. Play again?";
-
-                    option1.Text = "Yes";
-                    option2.Text = "No";
-                    option3.Text = "";
-
-                    imageBox.Image = Properties.Resources.deathScreen;
-                    deathSound.Play();
-
-                    option3.BackColor = Color.Black;
-                    option3.Enabled = false;
-                    break;
-                case 20:
-                    textOutput.Text = "You go straight at the intersection and encounter no issues and drive home. You win. Play again?";
-
-                    option1.Text = "Yes";
-                    option2.Text = "No";
-                    option3.Text = "";
-
-                    imageBox.Image = Properties.Resources.winner;
-                    yippee.Play();
-
-                    option3.BackColor = Color.Black;
-                    option3.Enabled = false;
-                    break;
-                case 21:
-                    textOutput.Text = "You take the right path and get lost in the forest. Do you call out for help or wander aimlessly?";
-
-                    option1.Text = "Call for help";
-                    option2.Text = "Wander aimlessly";
-                    option3.Text = "";
-
-                    imageBox.Image = Properties.Resources.forest;
-
-                    option3.BackColor = Color.Black;
-                    option3.Enabled = false;
-                    break;
-                case 22:
-                    textOutput.Text = "You wander off into the forest and get lost and slowly die of dehydration. Play again?";
-
-                    option1.Text = "Yes";
-                    option2.Text = "No";
-                    option3.Text = "";
-
-                    imageBox.Image = Properties.Resources.deathScreen;
-                    deathSound.Play();
-
-                    option3.BackColor = Color.Black;
-                    option3.Enabled = false;
-                    break;
-                case 23:
-                    textOutput.Text = "You walk past the car and continue wandering into the forest and get lost. Do you call for help or wander aimlessly?";
-
-                    option1.Text = "Call for help";
-                    option2.Text = "Wander aimlessly";
-                    option3.Text = "";
-
-                    imageBox.Image = Properties.Resources.forest;
-
-                    option3.BackColor = Color.Black;
-                    option3.Enabled = false;
-                    break;
-                case 24:
-                    textOutput.Text = "You call for help and a nearby hiker hears you and comes to rescue you and takes you to your house. You win. Play again?";
-
-                    option1.Text = "Yes";
-                    option2.Text = "No";
-                    option3.Text = "";
-
-                    imageBox.Image = Properties.Resources.winner;
-                    yippee.Play();
-
-                    option3.BackColor = Color.Black;
-                    option3.Enabled = false;
-                    break;
-                case 99:
-                    textOutput.Text = "Thank you for playing";
-
-                    option1.Text = "";
-                    option2.Text = "";
-                    option3.Text = "";
-
-                    imageBox.Image = Properties.Resources.endScreen;
-
-                    option1.BackColor = Color.Black;
-                    option2.BackColor = Color.Black;
-                    option3.BackColor = Color.Black;
-                    option1.Enabled = false;
-                    option2.Enabled = false;
-                    option3.Enabled = false;
-
-                    Refresh();
-                    Thread.Sleep(2000);
-
-                    Application.Exit();
-                    break;
-            }
+            switchCase();
         }
 
         private void option2_Click(object sender, EventArgs e)
         {
-            if (page == 1)
+            if (page == 1) // setting pages
             {
                 page = 3;
             }
@@ -587,355 +247,12 @@ namespace adventureGame
                 page = 99;
             }
 
-            switch (page)
-            {
-                case 1:
-                    textOutput.Text = "You wake up in an abandoned Wendy's bathroom. Do you leave or go back to sleep?";
-
-                    option1.Text = "Go back to sleep";
-                    option2.Text = "Leave the bathroom";
-                    option3.Text = "";
-
-                    imageBox.Image = Properties.Resources.bathroom;
-
-                    option3.BackColor = Color.Black;
-                    option3.Enabled = false;
-                    break;
-                case 2:
-                    textOutput.Text = "You fall asleep and die of E.coli from the Wendy's bathroom. Play again?";
-
-                    option1.Text = "Yes";
-                    option2.Text = "No";
-                    option3.Text = "";
-
-                    imageBox.Image = Properties.Resources.deathScreen;
-                    deathSound.Play();
-
-                    option3.BackColor = Color.Black;
-                    option3.Enabled = false;
-                    break;
-                case 3:
-                    textOutput.Text = "You leave out the back door and enter another room with a vent and a door. Which do you choose?";
-
-                    option1.Text = "Go through vent";
-                    option2.Text = "Go through door";
-                    option3.Text = "";
-
-                    imageBox.Image = Properties.Resources.vent;
-
-                    option3.BackColor = Color.Black;
-                    option3.Enabled = false;
-                    break;
-                case 4:
-                    textOutput.Text = "You got trapped in the vents and died of boredom. Play again?";
-
-                    option1.Text = "Yes";
-                    option2.Text = "No";
-                    option3.Text = "";
-
-                    imageBox.Image = Properties.Resources.deathScreen;
-                    deathSound.Play();
-
-                    option3.BackColor = Color.Black;
-                    option3.Enabled = false;
-                    break;
-                case 5:
-                    textOutput.Text = "You made it into the main room and you find a hammer. Do you take it, leave it or throw it into a deepfryer";
-
-                    option1.Text = "Throw it into a deepfryer";
-                    option2.Text = "Leave the hammer";
-                    option3.Text = "Take the hammer";
-
-                    imageBox.Image = Properties.Resources.hammer;
-
-                    option3.BackColor = Color.White;
-                    option3.Enabled = true;
-                    break;
-                case 6:
-                    textOutput.Text = "You throw the hammer into the deep fryer and oil splashes everywhere. You slip on the oil and hit your head on a table and die. Play again?";
-
-                    option1.Text = "Yes";
-                    option2.Text = "No";
-                    option3.Text = "";
-
-                    imageBox.Image = Properties.Resources.deathScreen;
-                    deathSound.Play();
-
-                    option3.BackColor = Color.Black;
-                    option3.Enabled = false;
-                    break;
-                case 7:
-                    textOutput.Text = "You got a hammer. Do you use it to break down a wall";
-
-                    option1.Text = "Break down the wall";
-                    option2.Text = "Don't break down the wall";
-                    option3.Text = "";
-
-                    imageBox.Image = Properties.Resources.wall;
-
-                    option3.BackColor = Color.Black;
-                    option3.Enabled = true;
-                    break;
-                case 8:
-                    textOutput.Text = "You leave the hammer and continue walking and you find 2 exits. Do you leave out the front door or back door?";
-
-                    option1.Text = "Front door";
-                    option2.Text = "Back door";
-                    option3.Text = "";
-
-                    imageBox.Image = Properties.Resources.wendys;
-
-                    option3.BackColor = Color.Black;
-                    option3.Enabled = false;
-                    break;
-                case 9:
-                    textOutput.Text = "You broke down the wall.";
-
-                    option1.Text = "";
-                    option2.Text = "";
-                    option3.Text = "";
-
-                    option1.BackColor = Color.Black;
-                    option2.BackColor = Color.Black;
-                    option3.BackColor = Color.Black;
-
-                    option1.Enabled = false;
-                    option2.Enabled = false;
-                    option3.Enabled = false;
-
-                    Refresh();
-                    Thread.Sleep(1500);
-
-                    textOutput.Text = "The roof collapses onto you and you get crushed to death. Play again?";
-
-                    option1.BackColor = Color.White;
-                    option2.BackColor = Color.White;
-
-                    option1.Text = "Yes";
-                    option2.Text = "No";
-                    option3.Text = "";
-
-                    option1.Enabled = true;
-                    option2.Enabled = true;
-
-                    imageBox.Image = Properties.Resources.deathScreen;
-                    deathSound.Play();
-                    break;
-                case 10:
-                    textOutput.Text = "You continue walking and you encounter a bear while walking. Do you fight it or run?";
-
-                    option1.Text = "Fight the bear";
-                    option2.Text = "Run from the bear";
-                    option3.Text = "";
-
-                    imageBox.Image = Properties.Resources.bear;
-
-                    option3.BackColor = Color.Black;
-                    option3.Enabled = false;
-                    break;
-                case 11:
-                    textOutput.Text = "You ran from the bear and barely escaped outside. You see 2 paths in front of you which do you choose?";
-
-                    option1.Text = "Left path";
-                    option2.Text = "Right path";
-                    option3.Text = "";
-
-                    imageBox.Image = Properties.Resources.twoPaths;
-
-                    option3.BackColor = Color.Black;
-                    option3.Enabled = false;
-                    break;
-                case 12:
-                    textOutput.Text = "You died to the bear RIP bozo. Play again?";
-
-                    option1.Text = "Yes";
-                    option2.Text = "No";
-                    option3.Text = "";
-
-                    imageBox.Image = Properties.Resources.deathScreen;
-                    deathSound.Play();
-
-                    option3.BackColor = Color.Black;
-                    option3.Enabled = false;
-                    break;
-                case 13:
-                    textOutput.Text = "You walk into a clearing and find a red Nissan Accord do you break into it?";
-
-                    option1.Text = "Break into the car";
-                    option2.Text = "Continue walking";
-                    option3.Text = "";
-
-                    imageBox.Image = Properties.Resources.redNissanAccord;
-
-                    option3.BackColor = Color.Black;
-                    option3.Enabled = false;
-                    break;
-                case 14:
-                    textOutput.Text = "You walk outside the front door and fall into a sinkhole and get crushed by rocks. Play again?";
-
-                    option1.Text = "Yes";
-                    option2.Text = "No";
-                    option3.Text = "";
-
-                    imageBox.Image = Properties.Resources.deathScreen;
-                    deathSound.Play();
-
-                    option3.BackColor = Color.Black;
-                    option3.Enabled = false;
-                    break;
-                case 15:
-                    textOutput.Text = "You leave out the back door and you see a car. Do you break in to it?";
-
-                    option1.Text = "Continue walking";
-                    option2.Text = "Break into the car";
-                    option3.Text = "";
-
-                    imageBox.Image = Properties.Resources.redNissanAccord;
-
-                    option3.BackColor = Color.Black;
-                    option3.Enabled = false;
-                    break;
-                case 16:
-                    textOutput.Text = "You walk into the street and get run down by a minivan. Play again?";
-
-                    option1.Text = "Yes";
-                    option2.Text = "No";
-                    option3.Text = "";
-
-                    imageBox.Image = Properties.Resources.deathScreen;
-                    deathSound.Play();
-
-                    option3.BackColor = Color.Black;
-                    option3.Enabled = false;
-                    break;
-                case 17:
-                    textOutput.Text = "You break in to the car and successfully hotwire it and drive to an intersection. Do you turn right, left or straight?";
-
-                    option1.Text = "Turn left";
-                    option2.Text = "Go straight";
-                    option3.Text = "Turn right";
-
-                    imageBox.Image = Properties.Resources.intersection;
-
-                    option3.BackColor = Color.White;
-                    option3.Enabled = true;
-                    break;
-                case 18:
-                    textOutput.Text = "You turn left at the intersection and fall of a cliff and your car explodes. Play again?";
-
-                    option1.Text = "Yes";
-                    option2.Text = "No";
-                    option3.Text = "";
-
-                    imageBox.Image = Properties.Resources.deathScreen;
-                    deathSound.Play();
-
-                    option3.BackColor = Color.Black;
-                    option3.Enabled = false;
-                    break;
-                case 19:
-                    textOutput.Text = "You turn right at the intersection. You nearly hit an old lady. She pulls out a Fortnite rocket launcher and blows up your car. Play again?";
-
-                    option1.Text = "Yes";
-                    option2.Text = "No";
-                    option3.Text = "";
-
-                    imageBox.Image = Properties.Resources.deathScreen;
-                    deathSound.Play();
-
-                    option3.BackColor = Color.Black;
-                    option3.Enabled = false;
-                    break;
-                case 20:
-                    textOutput.Text = "You go straight at the intersection and encounter no issues and drive home. You win. Play again?";
-
-                    option1.Text = "Yes";
-                    option2.Text = "No";
-                    option3.Text = "";
-
-                    imageBox.Image = Properties.Resources.winner;
-                    yippee.Play();
-
-                    option3.BackColor = Color.Black;
-                    option3.Enabled = false;
-                    break;
-                case 21:
-                    textOutput.Text = "You take the right path and get lost in the forest. Do you call out for help or wander aimlessly?";
-
-                    option1.Text = "Call for help";
-                    option2.Text = "Wander aimlessly";
-                    option3.Text = "";
-
-                    imageBox.Image = Properties.Resources.forest;
-
-                    option3.BackColor = Color.Black;
-                    option3.Enabled = false;
-                    break;
-                case 22:
-                    textOutput.Text = "You wander off into the forest and get lost and slowly die of dehydration. Play again?";
-
-                    option1.Text = "Yes";
-                    option2.Text = "No";
-                    option3.Text = "";
-
-                    imageBox.Image = Properties.Resources.deathScreen;
-                    deathSound.Play();
-
-                    option3.BackColor = Color.Black;
-                    option3.Enabled = false;
-                    break;
-                case 23:
-                    textOutput.Text = "You walk past the car and continue wandering into the forest and get lost. Do you call for help or wander aimlessly?";
-
-                    option1.Text = "Call for help";
-                    option2.Text = "Wander aimlessly";
-                    option3.Text = "";
-
-                    imageBox.Image = Properties.Resources.forest;
-
-                    option3.BackColor = Color.Black;
-                    option3.Enabled = false;
-                    break;
-                case 24:
-                    textOutput.Text = "You call for help and a nearby hiker hears you and comes to rescue you and takes you to your house. You win. Play again?";
-
-                    option1.Text = "Yes";
-                    option2.Text = "No";
-                    option3.Text = "";
-
-                    imageBox.Image = Properties.Resources.winner;
-                    yippee.Play();
-
-                    option3.BackColor = Color.Black;
-                    option3.Enabled = false;
-                    break;
-                case 99:
-                    textOutput.Text = "Thank you for playing";
-
-                    option1.Text = "";
-                    option2.Text = "";
-                    option3.Text = "";
-
-                    imageBox.Image = Properties.Resources.endScreen;
-
-                    option1.BackColor = Color.Black;
-                    option2.BackColor = Color.Black;
-                    option3.BackColor = Color.Black;
-                    option1.Enabled = false;
-                    option2.Enabled = false;
-                    option3.Enabled = false;
-
-                    Refresh();
-                    Thread.Sleep(2000);
-
-                    Application.Exit();
-                    break;
-            }
+            switchCase();
         }
 
         private void option3_Click(object sender, EventArgs e)
         {
-            if (page == 5)
+            if (page == 5) // setting pages
             {
                 page = 7;
             }
@@ -948,7 +265,12 @@ namespace adventureGame
                 option3.Enabled = false;
             }
 
-            switch (page)
+            switchCase();
+        }
+        public void switchCase()
+        {
+
+            switch (page) // changing whats on each page
             {
                 case 1:
                     textOutput.Text = "You wake up in an abandoned Wendy's bathroom. Do you leave or go back to sleep?";
@@ -1085,8 +407,8 @@ namespace adventureGame
                 case 10:
                     textOutput.Text = "You continue walking and you encounter a bear while walking. Do you fight it or run?";
 
-                    option1.Text = "Fight the bear";
-                    option2.Text = "Run from the bear";
+                    option1.Text = "Run from the bear";
+                    option2.Text = "Fight the bear";
                     option3.Text = "";
 
                     imageBox.Image = Properties.Resources.bear;
